@@ -10,7 +10,7 @@ You can get started with:
 
 Once the app image has been compiled and docker has finished executing all the containers, the app should be accessible at
 
-`http://localhost:4000``
+`http://localhost:4000`
 
 There are no initial logins created, so you need to head to the "Signup" page and enter an e-mail/password to get started. The UI is very basic so you won't get confirmation of creation. Try and login in order to operate on your virtual account.
 
