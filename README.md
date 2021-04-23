@@ -34,20 +34,25 @@ Also, due to time constraints, I used a very basic UI with almost no styling. I 
 Yes, except tests and UI fine tuning. I even included Dockerfile and docker-compose for fast boot.
 
 ### What would you add to your solution if you had more time?
+
 I would add unit, integration and component tests. I would Swap Styled Components with Tailwind, use Material UI with a basic theme.
 
 ### How would you optimise your solution?
-The solution is ready to be scaled, since the database and the app containers are separated and there are no bottlenecks on the back-end. I would placke the static files on a CDN, the API back-end in a K8S cluster and run a managed server on AWS. Also I would introduce an API gateway to control throttling and backpressure. Finally, I would use a shared in memory storage for sessions and caching, such as Redis.
+
+The solution is ready to be scaled, since the database and the app containers are separated and there are no bottlenecks on the back-end. I would place the static files on a CDN, the API back-end in a K8S cluster and run a managed server on AWS. Also I would introduce an API gateway to control throttling and backpressure. Finally, I would use a shared in memory storage for sessions and caching, such as Redis.
 
 ### What are the security issues you can see in your solution?
+
 - Passwords must be hardened, secrets exportes to env variables and transferred into shared secrects or vaults.
 - There is no XSS, CSRF control, it must be added.
 - The session is very weak and can be hijacked easily, I would enable TLS 1.3 and use JWT for authentication, instead of session cookies.
 
 ### How does your solution handle concurrency in order to maintain correct ordering or transfers.
+
 By using transactions with "serial" isolation and locking records with FOR UPDATE clause on SELECT. All transactions acting on the same database row (or table) are necessarily waiting for each other and can fail in case of conflicts. In this case I would retry the transaction.
 
 ### List a few of your preferred JavaScript frameworks (also let us know in which situations you would choose to use/not use them).
+
 - React: it's the de facto standard for front-end development. I always use it unless client has different requirements or we're upgrading a project that does not include React. Also very easy to combine with SSR.
 
 - Jest/React Testing Library: a must for FE testing in all cases, actually it comes with CRA.
@@ -60,7 +65,7 @@ By using transactions with "serial" isolation and locking records with FOR UPDAT
 
 - I normally use many other "helper" libs such as lodash, react-router, React Hook Form, Material UI, TailwindCSS, etc...
 
-## TODOs / Optimizations / Improvements
+## Other TODOs / Optimizations / Improvements
 
 - Compile instead of transpiling TS in back-end
 - Handle UI disable/failures/messages/redirects gracefully, now you have to jump from one page to another manually and the UI does not respond actively to changes
