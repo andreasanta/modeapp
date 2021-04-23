@@ -1,0 +1,48 @@
+{
+    "name": "nodeapp-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "server": "ts-node src/server",
+        "server:dev": "ts-node-dev src/server",
+        "lint": "node_modules/.bin/eslint ./src --ext .tsx --ext .ts",
+        "build": "tsc"
+    },
+    "keywords": [],
+    "author": "Andrea Santambrogio <andrea.santa@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "@types/bcrypt": "^3.0.1",
+        "@types/express-session": "^1.17.0",
+        "@types/lodash": "^4.14.168",
+        "@types/mongoose": "^5.7.36",
+        "@types/morgan": "^1.9.1",
+        "@types/passport": "^1.0.4",
+        "bcrypt": "^5.0.1",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.10.0",
+        "knex": "^0.95.4",
+        "lodash": "^4.17.21",
+        "morgan": "^1.10.0",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "pg": "^8.6.0",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.9"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.7",
+        "@types/passport-local": "^1.0.33",
+        "@typescript-eslint/eslint-plugin": "^3.9.1",
+        "@typescript-eslint/parser": "^3.9.1",
+        "eslint": "^7.7.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "prettier": "2.0.5",
+        "ts-node-dev": "^1.1.6"
+    }
+}

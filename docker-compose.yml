@@ -1,0 +1,34 @@
+version: '3.9'
+
+services: 
+    database:
+        image: postgres:13
+        environment: 
+            - POSTGRES_USER=modeapp
+            - POSTGRES_PASSWORD=modeapp
+            - POSTGRES_DB=modeapp
+        volumes:
+            - modeappdb:/var/lib/postgresql/data
+        networks:
+            - modeapp
+        ports:
+            - 5432:5432
+
+    app:
+        image: modeapp
+        build: .
+        environment:
+            - PG_CONNSTRING=postgresql://modeapp:modeapp@database/modeapp
+        networks:
+            - modeapp
+        ports:
+            - 4000:4000
+        depends_on:
+            - database
+
+volumes:
+    modeappdb:
+
+networks:
+    modeapp:
+        driver: bridge
