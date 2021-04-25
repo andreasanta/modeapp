@@ -43,6 +43,10 @@ export default class User implements IUser
     static async findByEmail(email : string) : Promise<User | undefined> {
         try { 
             const userData = await Users().where('email', email).first()
+
+            if (!userData)
+                return undefined
+
             return Object.assign(new User(), this.afterLoad(userData))
         }
         catch (e)

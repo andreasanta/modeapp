@@ -1,11 +1,12 @@
-import express from 'express';
-import session from 'express-session';
-import morgan from 'morgan';
+import express from 'express'
+import session from 'express-session'
+import morgan from 'morgan'
+import db from './config/database'
 
-import keys from './config/keys';
-import passport from './config/passport/passport';
-import authRouter from './routes/auth/authRouter';
-import userRouter from './routes/user/userRouter';
+import keys from './config/keys'
+import passport from './config/passport/passport'
+import authRouter from './routes/auth/authRouter'
+import userRouter from './routes/user/userRouter'
 
 const app = express();
 
